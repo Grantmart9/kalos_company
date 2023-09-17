@@ -22,29 +22,15 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-const menuItems = [
-  { name: "Products", path: "/products" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
+const Menu = [
+  { name: "Logistics", path: "/logistics" },
+  { name: "Management", path: "/management" },
+  { name: "Product Updates", path: "/productupdates" },
 ];
 
-const RegisteredMenuItems = [
-  { name: "Products", path: "/products" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
-  { name: "Orders", path: "/orders" },
-  { name: "My Cart", path: "/cart" },
-  { name: "settings", path: "/settings" },
-];
 
 const SideNavInner = ({ handleClick, jwt }) => {
-  var Menu;
-  console.log(jwt);
-  if (jwt) {
-    Menu = RegisteredMenuItems;
-  } else {
-    Menu = menuItems;
-  }
+  
   return (
     <div className="grid grid-rows-4 gap-2 p-2 mt-5">
       {Menu.map((item) => (
