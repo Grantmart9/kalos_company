@@ -2,7 +2,8 @@ import React from "react";
 import { buttonColor, layoutColor, pageHeading } from "components/DisplaySettings/feutures";
 import { Size } from "media-query";
 
-export const Management = () => {
+export const Logistics = () => {
+  const size = Size();
   return (
     <div>
       {size == "MD" || size == "SM" || size == "XS" ? (

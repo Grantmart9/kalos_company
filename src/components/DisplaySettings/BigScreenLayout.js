@@ -10,6 +10,9 @@ import { Login } from "UserPages/Login";
 import { Register } from "UserPages/Register";
 import { Settings } from "UserSecuredPages/Settings";
 import { Orders } from "UserSecuredPages/Orders";
+import {Logistics} from "CompanyPages/Logistics";
+import { Management } from "CompanyPages/management";
+import { ProductListUpdate } from "CompanyPages/ProductListUpdate";
 import Loading from "images/Loading.gif";
 import {
   buttonColor,
@@ -22,30 +25,14 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-/*This needs to be */
-const menuItems = [
-  { name: "Products", path: "/products" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
-];
-const RegisteredMenuItems = [
-  { name: "Products", path: "/products" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
-  { name: "Orders", path: "/orders" },
-  { name: "My Cart", path: "/cart" },
-  { name: "settings", path: "/settings" },
+const Menu = [
+  { name: "Logistics", path: "/logistics" },
+  { name: "Management", path: "/management" },
+  { name: "Product Updates", path: "/productupdates" },
 ];
 
 const SideNavInner = ({ handleClick, jwt }) => {
-  var Menu;
-  console.log(jwt);
-  if (jwt) {
-    Menu = RegisteredMenuItems;
-  }
-   else {
-    Menu = menuItems;
-  }
+
   return (
     <div className="grid grid-rows-4 gap-2 p-2 mt-5">
       {Menu.map((item) => (
@@ -113,6 +100,15 @@ const ScreenLayoutInner = ({ setJWT }) => {
         </Route>
         <Route path="/settings">
           <Settings />
+          </Route>
+        <Route path="/logistics">
+          <Logistics />
+        </Route>
+        <Route path="/management">
+          <Management />
+        </Route>
+        <Route path="/productupdates">
+          <ProductListUpdate />
         </Route>
       </Switch>
     </div>
